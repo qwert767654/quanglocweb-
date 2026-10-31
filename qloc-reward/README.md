@@ -37,6 +37,12 @@ VITE_SUPABASE_ANON_KEY=YOUR_ANON_PUBLIC_KEY
 5. Khởi động lại `npm run dev`.
 6. Đăng ký tài khoản mới. Supabase có thể yêu cầu xác nhận email tùy cấu hình Auth.
 
+### Triển khai trên Netlify
+
+Đặt `VITE_SUPABASE_URL` và `VITE_SUPABASE_ANON_KEY` trong Environment variables của Netlify. Vite đưa hai giá trị công khai này vào JavaScript của trình duyệt; cấu hình Netlify chỉ bỏ qua quét hai biến này, vẫn quét các bí mật khác. Chỉ dùng anon/public key, tuyệt đối không dùng secret key hoặc `service_role` key.
+
+Không commit `.env`, thư mục `dist/` hoặc ZIP chứa cấu hình thật. Nếu khóa bí mật từng được commit, hãy thu hồi và thay khóa trong Supabase; xóa tệp không xóa dữ liệu khỏi lịch sử Git.
+
 ### Cấp quyền admin
 Mặc định tất cả tài khoản là `user`. Chỉ chủ project mới nên tự cấp quyền cho tài khoản của mình sau khi đăng nhập:
 
